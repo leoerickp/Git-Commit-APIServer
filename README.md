@@ -1,73 +1,81 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
+# Git Commit - API Server
+### English: 
+This API Server is intended for a technical test demonstrating Restful API knowledge using Nest. It makes requests to a Git Hub API server, retrieving commits from a specific repository, selecting and reducing the information provided by the Git Hub API; It also allows sending email using Gmail. You have 3 End Points:
+* git-commits/last: Publish the last 3 commits of a given repository.
+* git-commits/all: Publish all commits of a given repository.
+* /sendmail: Enables sending email from a Website.
+### Español:
+Este Servidor API está destinado a una prueba técnica por la cual se demuestra conocimientos sobre API Restful usando Nest. El mismo realiza peticiones a un servidor API de Git Hub, recuperando commits de un repositorio específico, seleccionando y reduciendo la información proporcionada por el API Git Hub; además permite el envío de correo electrónico usando Gmail. Se tiene 3 End Points:
+* git-commits/last: Publica los últimos 3 commits de un repositorio dado.
+* git-commits/last: Publica todos los commits de un repositorio dado.
+* /sendmail: Posibilita el envío de correo electrónico desde un Sitioweb.
+## Comenzando
+_Estas instrucciones te permitirán obtener una copia del proyecto para realizar las pruebas respectivas o continuar con su desarrollo._
+## Requisitos
+_Lo que necesitas para instalar el Servidor API en tu computadora local:_
+* Clonar el [Servidor API](https://github.com/leoerickp/Git-Commit-APIServer.git).
+## Instalación
+_Dentro de la carpeta donde se clonó el proyecto:_
+* Instalar las dependencias:
+```console
+npm install
 ```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+## Configuración
+_Dentro de la carpeta donde se clonó el proyecto, es necesario configurar las variables de entorno del servidor API:_
+* Con el editor de su preferencia crear un archivo con el nombre **.env** en la carpeta raiz:
+* Como el ejemplo **.sample.env**, agregar las siguientes variables de entorno:
+```javascript
+PORT=
+TOKEN=
+EMAIL=
+EPASSWORD=
+EMAILTO=
+GIT_OWNER=
+REPO=
 ```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+* Asignar a **PORT** con el número puerto disponible para el Servidor API. Ej. **PORT=3000**.
+* Asignar a **TOKEN** el token obtenido de Git Hub ([Ver documentación](https://docs.github.com/es/rest)).
+* Asignar a **EMAIL** la dirección de correo electrónico de Google que será utilizado para enviar el correo.
+* Asignar a **EPASSWORD** la contraseña proporcionada por Google para usarse en aplicaciones ([Ver documentación](https://support.google.com/accounts/answer/185833)). 
+* Asignar a **EMAILTO** la dirección de correo electrónico que será utilizado como destinatario de los correos. Estos contendrán el mensaje proporcionado del sitio Web.
+* Asignar a **GIT_OWNER** el usuario propietario de Git Hub. Ej. **GIT_OWNER=leoerickp**.
+* Asignar a **REPO** el repositorio de Git Hub para obtener los commit. Ej.**REPO=Git-Commit**.
+---------------
+## Ejecución
+_Dentro de la carpeta donde se clonó el proyecto:_
+* Ejecutar como desarrollador:
+```console
+npm run start:dev
 ```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## Características de los End Points
+* git-commits/last: Es un End Point GET que no pasa ningún dato, respondiendo con un array con los últimos 3 commits con un JSON como:
+```json
+{
+    "author": {
+        "name": "Leo Pereyra",
+        "email": "leoerickp@gmail.com",
+        "date": "2022-10-18T13:58:39Z"
+    },
+    "committer": {
+        "name": "Leo Pereyra",
+        "email": "leoerickp@gmail.com",
+        "date": "2022-10-18T13:58:39Z"
+    },
+    "message": "README.md and Index.html modified",
+    "author_avatar_url": "https://avatars.githubusercontent.com/u/112339552?v=4",
+    "author_html_url": "https://github.com/leoerickp",
+    "commiter_avatar_url": "https://avatars.githubusercontent.com/u/112339552?v=4",
+    "commiter_html_url": "https://github.com/leoerickp"
+}
+```
+* git-commits/all: Es un End Point GET que no pasa ningún dato, respondiendo con un array como el caso anterior.
+* /sendmail: Es un End Point POST que envía en el **body** la dirección del correo electrónico **(email)** y el mensaje del correo **(msg)**, devolviendo un JSON como:
+```json
+{
+    "msg": "success"
+}
+```
+## Autor
+* [Leo Erick Pereyra](https://github.com/leoerickp).
+## Licencia
+Este proyecto está bajo la licencia del HONOR.

@@ -8,10 +8,11 @@ export class GitCommitsController {
     ) { }
     @Get('/last')
     getGit3LastCommits() {
-        return this.gitCommitsService.getGitCommitsFromGitHub3last("leoerickp", "liga-justicia");
+
+        return this.gitCommitsService.getGitCommitsFromGitHub3last(process.env.GIT_OWNER, process.env.REPO);
     }
     @Get('/all')
     getGitAllCommits() {
-        return this.gitCommitsService.getGitCommitsFromGitHub("leoerickp", "liga-justicia");
+        return this.gitCommitsService.getGitCommitsFromGitHub(process.env.GIT_OWNER, process.env.REPO);
     }
 }
