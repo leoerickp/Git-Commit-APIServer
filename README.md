@@ -79,3 +79,7 @@ npm run start:dev
 * [Leo Erick Pereyra](https://github.com/leoerickp).
 ## Licencia
 Este proyecto está bajo la licencia del HONOR.
+
+
+<div height="200" width="200">![9c0250ae61df31af88cb04ecba7e7cd1](https://user-images.githubusercontent.com/112339552/196771404-8a8c3d42-67d0-4c9d-b589-6f05dedf1235.jpg)
+</div>
