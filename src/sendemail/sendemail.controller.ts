@@ -1,4 +1,5 @@
 import { Controller, Post, Body } from '@nestjs/common';
+import { MessageDto } from './dto/message.dto';
 
 import { SendemailService } from './sendemail.service';
 
@@ -8,7 +9,8 @@ export class SendemailController {
         private readonly sendEmailService: SendemailService
     ) { }
     @Post()
-    postMessage(@Body() messageDto) {
-        return this.sendEmailService.sendEmail(messageDto);
+    postMessage(@Body() messageDto: MessageDto) {
+        return messageDto;
+        //return this.sendEmailService.sendEmail(messageDto);
     }
 }
