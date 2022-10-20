@@ -11,7 +11,6 @@ export class SendemailController {
 
     @Post()
     postMessage(@Body() messageDto: MessageDto) {
-        return messageDto;
-        //return this.sendEmailService.sendEmail(messageDto);
+        return this.sendEmailService.sendEmail(messageDto);
     }
 }
